@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+.nav-active {
+    @apply text-[#ff3700];
+}
+
+.bgImg-active {
+    @apply opacity-100 visible;
+}
+
+.content-active {
+    @apply opacity-100 visible scale-100;
+}
