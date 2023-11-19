@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
+import "tw-elements-react/dist/css/tw-elements-react.min.css";
 import './index.css';
 import { RouterProvider, createHashRouter } from 'react-router-dom';
 import NotFoundPage from './pages/NotFoundPage.jsx';
+
 
 const router = createHashRouter([
   {

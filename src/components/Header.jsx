@@ -1,6 +1,8 @@
+import Btn from './Btn';
 import Menu from './Menu';
 import Search from './Search';
 import { LiaBombSolid } from "react-icons/lia";
+import { PiSignIn } from "react-icons/pi";
 
 
 function Header() {
@@ -10,6 +12,7 @@ function Header() {
             <a href="/" className="font-['Racing_Sans_One'] text-[35px] text-white tracking-[2px] font-extrabold no-underline uppercase flex">mad<LiaBombSolid className='stroke-0 fill-[#ff3700] self-end' />gamers</a>
             <Menu />
             <Search />
+            <Btn icon={<PiSignIn />} name='Sign In' />
         </header>
     );
 }
