@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
+import 'swiper/css';
 import "tw-elements-react/dist/css/tw-elements-react.min.css";
 import './index.css';
 import { RouterProvider, createHashRouter } from 'react-router-dom';
@@ -25,13 +26,13 @@ const router = createHashRouter([
         lazy: () => import('./layouts/Game.jsx'),
       },
       {
+        path: 'events',
+        lazy: () => import('./layouts/Events.jsx'),
+      },
+      {
         path: 'blog',
         lazy: () => import('./layouts/Blog.jsx'),
       },
-      // {
-      //   path: 'search',
-      //   lazy: () => import('./layout/Search.jsx'),
-      // },
       // {
       //   path: 'hero',
       //   lazy: () => import('./layout/Hero.jsx'),

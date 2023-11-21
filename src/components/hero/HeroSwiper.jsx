@@ -1,0 +1,46 @@
+import PropTypes from "prop-types";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, EffectCoverflow } from 'swiper/modules';
+import 'swiper/css/effect-coverflow';
+import 'swiper/css/pagination';
+
+
+HeroSwiper.propTypes = {
+    slides: PropTypes.array,
+    slideChange: PropTypes.func,
+};
+
+function HeroSwiper({ slides, slideChange }) {
+    return (
+        <Swiper
+            effect={'coverflow'}
+            grabCursor={false}
+            centeredSlides={true}
+            slidesPerView={'auto'}
+            autoplay={{
+                delay: 2500,
+                disableOnInteraction: false,
+            }}
+            coverflowEffect={{
+                rotate: 35,
+                stretch: -10,
+                depth: 50,
+                modifier: 1,
+                slideShadows: true,
+            }}
+            loop={true}
+            modules={[EffectCoverflow, Autoplay]}
+            className="mt-8 py-[50px] w-[35vw] bg-[#00000018] backdrop-blur-[20px] shadow-[#ffffff80]"
+        >
+            {
+                slides.map((slide) =>
+                    <SwiperSlide key={slide._id} className="bg-center bg-cover w-[150px] h-[200px]">
+                        <img src={slide.previewImg} alt="Game Poster Preview" className="block w-full h-full object-cover" onClick={() => slideChange(slide._id)} />
+                    </SwiperSlide>)
+            }
+        </Swiper>
+    );
+}
+
+export default HeroSwiper;
+//className="absolute py-[35px] bottom-5 left-1/2 translate-x-[-50%] w-[45vw] bg-[#0000004d] backdrop-blur-[20px] shadow-[#ffffff80]"

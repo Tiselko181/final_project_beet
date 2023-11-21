@@ -8,6 +8,6 @@ function Home() {
     );
 }
 
-export { Hero as Component };
+export { Home as Component };
 
 export default Home;

@@ -12,7 +12,7 @@ function Header() {
             <a href="/" className="font-['Racing_Sans_One'] text-[35px] text-white tracking-[2px] font-extrabold no-underline uppercase flex">mad<LiaBombSolid className='stroke-0 fill-[#ff3700] self-end' />gamers</a>
             <Menu />
             <Search />
-            <Btn icon={<PiSignIn />} name='Sign In' />
+            <Btn icon={<PiSignIn className="fill-white" />} name='Sign In' className="group-hover:!bg-white group-hover:!text-[#ff3700]" />
         </header>
     );
 }
