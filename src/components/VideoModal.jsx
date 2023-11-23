@@ -1,5 +1,6 @@
 import { IoMdClose } from "react-icons/io";
 import PropTypes from "prop-types";
+// import PlayBtn from '../components/PlayBtn';
 
 VideoModal.propTypes = {
     game: PropTypes.object,
@@ -10,7 +11,9 @@ VideoModal.propTypes = {
 function VideoModal({ game, toogleVideoModal, status }) {
     return (
         <div className={`videoModal ${status ? 'flex' : undefined}`}>
-            <a href="#" className="absolute top-[30px] right-[30px] cursor-pointer " onClick={toogleVideoModal}>
+            <a href="#"
+                className="absolute top-[30px] right-[30px] cursor-pointer "
+                onClick={toogleVideoModal}>
                 <IoMdClose className="fill-white" />
             </a>
             <iframe

@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 
-const navClass = "text-white uppercase font-normal tracking-[1px] duration-300 hover:text-scarlet hover:text-[#ff3700]";
+const navClass = "text-white uppercase font-normal tracking-[1px] duration-300 hover:text-[#ff3700]";
 
 function getNavClasses({ isActive }) {
     return isActive ? `${navClass} nav-active` : navClass;

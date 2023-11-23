@@ -3,6 +3,7 @@ import HeroContent from '../components/hero/HeroContent';
 // import HeroDate from '../components/hero/HeroDate';
 // import PlayBtn from '../components/PlayBtn';
 import HeroSwiper from '../components/hero/HeroSwiper';
+import DownBtn from '../components/hero/DownBtn';
 
 function Hero() {
     const [games, setGames] = useState([]);
@@ -19,12 +20,12 @@ function Hero() {
     }, []);
 
     const handleSlideChange = id => {
-        const newGames = games.map(game => {
-            game.active = false;
-            if (game._id === id) {
-                game.active = true;
+        const newGames = games.map(games => {
+            games.active = false;
+            if (games._id === id) {
+                games.active = true;
             }
-            return game;
+            return games;
         });
 
         setGames(newGames)
@@ -35,17 +36,20 @@ function Hero() {
             {games.map((game) => {
                 if (game.active) {
                     return (
-                        <div key={game._id} className='py- px-[100px] top-0 left-0 w-full h-screen flex justify-between items-center overflow-hidden pb-[100px]'>
-                            <img src={game.bgImg} alt="background" className={`bgImg ${game.active ? 'active' : undefined}`} />
-                            <div className='w-2/4 md:w-full'>
-                                <HeroContent game={game} />
-                            </div>
-                            <div className='w-2/4 md:w-full'>
-                                {games && games.length > 0 && <HeroSwiper slides={games} slideChange={handleSlideChange} />}
-                                {/* <HeroDate game={game} /> */}
-                                {/* <PlayBtn game={game} /> */}
-                            </div>
-                        </div>
+                        <>
+                            <section key={game.key} className='py-1.5 px-[100px] top-0 left-0 w-full h-screen flex justify-between items-center overflow-hidden pb-[100px]'>
+                                <img src={game.bgImg} alt="background" className={`bgImg ${game.active ? 'active' : undefined}`} />
+                                <div className='w-2/4 md:w-full'>
+                                    <HeroContent game={game} />
+                                </div>
+                                <div className='w-2/4 md:w-full'>
+                                    {games && games.length > 0 && <HeroSwiper slides={games} slideChange={handleSlideChange} />}
+                                    {/* <HeroDate game={game} /> */}
+                                    {/* <PlayBtn game={game} /> */}
+                                </div>
+                            </section>
+                            <DownBtn />
+                        </>
                     )
                 }
             })},
