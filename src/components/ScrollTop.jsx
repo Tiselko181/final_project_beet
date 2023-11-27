@@ -8,7 +8,7 @@ const scrollTopClass = "fixed bottom-[15px] right-[15px] scrolldown z-[1100] inv
 
 function ScrollTop({ scroll }) {
     const scrollToTop = () => {
-        window.scrollTo(0, 0);
+        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
     }
     return (
         <a href="#" onClick={scrollToTop} className={`${scrollTopClass} ${scroll > 100 ? 'scroll-active' : undefined}`}>

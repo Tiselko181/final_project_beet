@@ -1,4 +1,4 @@
-import { CiHospital1 } from "react-icons/ci";
+
 
 function Events() {
     return (

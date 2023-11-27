@@ -189,3 +189,11 @@
 .scroll-active {
     @apply opacity-100 visible;
 }
+
+.hiddenContent {
+    @apply opacity-0 hidden scale-0;
+}
+
+.visibleContent {
+    @apply opacity-100 visible scale-100;
+}

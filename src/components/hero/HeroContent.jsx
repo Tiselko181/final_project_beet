@@ -2,7 +2,7 @@
 import PropTypes from "prop-types";
 // import VideoModal from "../VideoModal";
 import Btn from "../Btn"
-import { IoAddSharp } from "react-icons/io5";
+import { MdOutlineBookmarkAdd } from "react-icons/md";
 import PlayBtn from '../PlayBtn';
 
 HeroContent.propTypes = {
@@ -32,7 +32,7 @@ function HeroContent({ game }) {
                         className='hover:!text-white hover:!bg-[#ff3700]'
                         onClick={toogleVideoModal} /> */}
                     {/* {game.active && <VideoModal game={game} status={videoModal} toogleVideoModal={toogleVideoModal} />} */}
-                    <Btn icon={<IoAddSharp className='stroke-white group-hover:stroke-[#ff3700]' />} name='My List' />
+                    <Btn icon={<MdOutlineBookmarkAdd className='stroke-white group-hover:stroke-[#ff3700]' />} name='My List' />
                 </div>
             </div>
         </>

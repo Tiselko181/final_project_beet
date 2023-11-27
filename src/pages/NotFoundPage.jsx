@@ -11,7 +11,7 @@ function NotFoundPage() {
         }, 3000);
 
         return () => { clearTimeout(timeout); };
-    }, []);
+    }, [navigate]);
 
     return (
         <>

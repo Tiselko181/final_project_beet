@@ -2,7 +2,7 @@ import React from 'react';
 
 function Footer() {
     return (
-        <footer
+        <footer id='footer'
             className="text-center text-white lg:text-left">
             <div
                 className="flex items-center justify-center border-b-2 border-[#ff3700] p-6 lg:justify-between">
