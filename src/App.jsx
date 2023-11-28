@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import './App.css';
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import ScrollTop from "./components/ScrollTop";
+import ScrollTopBtn from "./components/ScrollTopBtn";
 
 
 
@@ -30,7 +30,7 @@ function App() {
                 <Outlet />
             </main>
             <Footer />
-            <ScrollTop scroll={scroll} />
+            <ScrollTopBtn scroll={scroll} />
         </>
     );
 }
