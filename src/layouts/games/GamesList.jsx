@@ -1,22 +1,20 @@
 import { useState, useEffect } from "react";
-import GameCard from "../components/GameCard";
+import GameCard from "./GameCard";
+import { tokenKey, baseUrl, gamesEndpoint } from "../../config/config";
 
-
-
-function Games() {
+function GamesList() {
     const [gameList, setGameList] = useState(
         () => {
             const data = JSON.parse(
-                window.localStorage.getItem('https://api.rawg.io/api/games?key=1f6c416ba1884dcc875ae25be6c7b04f')
+                window.localStorage.getItem(`${baseUrl}${gamesEndpoint}${tokenKey}`)
             );
-
             return data ? data.results : [];
         }
     );
 
     useEffect(() => {
-        async function getDataGames() {
-            const server = 'https://api.rawg.io/api/games?key=1f6c416ba1884dcc875ae25be6c7b04f';
+        async function getDataGamesList() {
+            const server = `${baseUrl}${gamesEndpoint}${tokenKey}`;
             const response = await fetch(server, {
                 method: 'GET',
             });
@@ -26,15 +24,12 @@ function Games() {
 
             setGameList(gamesData.results);
         }
-
-        if (gameList.length === 0) {
-            getDataGames();
-        }
+        gameList.length || getDataGamesList();
 
     }, [gameList]);
-    console.log(gameList);
+
     return (
-        <section className="relative w-full min-h-screen px-[100px] py-[100px] overflow-hidden duration-500">
+        <section className="relative w-full min-h-screen px-[40px] py-[40px] lg:px-[100px] lg:py-[100px] overflow-hidden duration-500">
             <h2>Games</h2>
             <div className="box-border flex flex-wrap gap-10 justify-center items-center">
                 {
@@ -47,6 +42,6 @@ function Games() {
     );
 }
 
-export { Games as Component };
+export { GamesList as Component };
 
-export default Games;
+export default GamesList;

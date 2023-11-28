@@ -32,12 +32,12 @@ function Hero() {
     };
 
     return (
-        <div className='relative w-full min-h-screen px-[100px] py-0 overflow-hidden duration-500 after:absolute after:content-[""] after:w-full after:h-full after:bg-[#12121299] after:inset-x-0 after:inset-y-0'>
+        <section className='relative w-full min-h-screen px-[100px] py-0 overflow-hidden duration-500 after:absolute after:content-[""] after:w-full after:h-full after:bg-[#12121299] after:inset-x-0 after:inset-y-0'>
             {games.map((game) => {
                 if (game.active) {
                     return (
                         <React.Fragment key={game._id}>
-                            <section className='py-1.5 px-[100px] top-0 left-0 w-full h-screen flex justify-between items-center overflow-hidden pb-[100px]'>
+                            <div className='pt-[120px] px-[100px] top-0 left-0 w-full h-screen flex justify-between items-center overflow-hidden pb-[100px]'>
                                 <img src={game.bgImg} alt="background" className={`bgImg ${game.active ? 'active' : undefined}`} />
                                 <div className='w-2/4 md:w-full'>
                                     <HeroContent game={game} />
@@ -47,13 +47,13 @@ function Hero() {
                                     {/* <HeroDate game={game} /> */}
                                     {/* <PlayBtn game={game} /> */}
                                 </div>
-                            </section>
+                            </div>
                             <DownBtn />
                         </React.Fragment>
                     )
                 }
             })},
-        </div>
+        </section>
     );
 }
 

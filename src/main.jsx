@@ -19,11 +19,11 @@ const router = createHashRouter([
       },
       {
         path: 'games',
-        lazy: () => import('./layouts/Games.jsx'),
+        lazy: () => import('./layouts/games/GamesList.jsx'),
       },
       {
         path: 'games/:id',
-        lazy: () => import('./layouts/Game.jsx'),
+        lazy: () => import('./layouts/games/Game.jsx'),
       },
       {
         path: 'events',
