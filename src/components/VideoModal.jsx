@@ -1,14 +1,19 @@
 import { IoMdClose } from "react-icons/io";
+import { useState } from 'react';
 import PropTypes from "prop-types";
-// import PlayBtn from '../components/PlayBtn';
 
 VideoModal.propTypes = {
     game: PropTypes.object,
-    toogleVideoModal: PropTypes.func,
     status: PropTypes.bool,
 };
 
-function VideoModal({ game, toogleVideoModal, status }) {
+function VideoModal({ game }) {
+    const [videoModal, setVideoModal] = useState(false);
+
+    const toogleVideoModal = () => {
+        setVideoModal(!videoModal)
+    }
+
     return (
         <div className={`videoModal ${status ? 'flex' : undefined}`}>
             <a href="#"
@@ -20,7 +25,7 @@ function VideoModal({ game, toogleVideoModal, status }) {
                 width="1280"
                 height="720"
                 src={game.video}
-                title={`${game.title} | Game Trailer`}
+                title={`${game.name} | Game Trailer`}
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen

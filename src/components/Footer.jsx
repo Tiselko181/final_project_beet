@@ -5,7 +5,7 @@ function Footer() {
         <footer id='footer'
             className="text-center text-white lg:text-left">
             <div
-                className="flex items-center justify-center border-b-2 border-[#ff3700] p-6 lg:justify-between">
+                className="flex items-center justify-center heroUnderline p-6 lg:justify-between">
                 <div className="mr-12 hidden lg:block">
                     <span>Get connected with us on social networks:</span>
                 </div>

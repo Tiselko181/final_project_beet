@@ -30,12 +30,12 @@ function HeroSwiper({ slides, slideChange }) {
             }}
             loop={true}
             modules={[EffectCoverflow, Autoplay]}
-            className="mt-8 py-[80px] w-[35vw] bg-[#00000018] backdrop-blur-[20px] shadow-[0_0_30px] shadow-[#ffffff6b]"
+            className="mt-8 py-[80px] w-[35vw] bg-[#00000018] rounded backdrop-blur-[20px] shadow-[0_0_30px] shadow-[#ffffff6b]"
         >
             {
                 slides.map((slide) =>
                     <SwiperSlide key={slide._id} className="bg-center bg-cover w-[170px] h-[220px]">
-                        <img src={slide.previewImg} alt="Game Poster Preview" className="block w-full h-full object-cover" onClick={() => slideChange(slide._id)} />
+                        <img src={slide.previewImg} alt="Game Poster Preview" className="block w-full h-full object-cover rounded shadow-[0_0_7px] shadow-[#ffffff3e]" onClick={() => slideChange(slide._id)} />
                     </SwiperSlide>)
             }
         </Swiper>
