@@ -4,18 +4,12 @@
 
 
 @layer components {
-    .bgScrolled {
+    .heroUnderline {
         background-color: #12121299;
         border-block-end: 2px solid var(--primary);
         border-image: linear-gradient(90deg, transparent, var(--primary), transparent)30;
         backdrop-filter: blur(20px);
         padding: 10px 100px;
-    }
-
-    .webkit-mask {
-        -webkit-mask: linear-gradient(#000 0 0), linear-gradient(#000 0 0);
-        -webkit-mask-clip: text, padding-box;
-        -webkit-mask-composite: xor;
     }
 
     .scrolldown {
@@ -196,4 +190,8 @@
 
 .visibleContent {
     @apply opacity-100 visible scale-100;
+}
+
+.titleEffect {
+    @apply after:absolute after:content-[''] after:left-12 after:bottom-[30px] after:h-1 after:w-1/2 after:z-50 after:bg-gradient-to-r after:from-[#ff3700];
 }

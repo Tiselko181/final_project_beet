@@ -9,7 +9,7 @@ function Game() {
         () => {
             return JSON.parse(
                 window.localStorage.getItem(`${baseUrl}${gamesEndpoint}/${params.id}${tokenKey}`)
-            ) || {}
+            ) || {};
         }
     );
 
@@ -23,16 +23,16 @@ function Game() {
 
             window.localStorage.setItem(server, JSON.stringify(gameDataResponse));
 
-            setGame(gameDataResponse.slug);
+            setGame(gameDataResponse);
         }
         game.length || getDataGame();
-    })
+    }, [game.length, params.id])
 
     return (
         <div className="relative w-full min-h-screen px-[100px] py-0 overflow-hidden after:absolute after:content-[''] after:w-full after:h-full after:bg-[#121212cd] after:inset-x-0 after:inset-y-0" >
             <div className="py-1.5 px-[100px] top-0 left-0 w-full h-screen flex justify-between items-center overflow-hidden pb-[100px]">
-                <img src={game.background_image_additional} alt="Game Poster" className="absolute top-0 left-0 w-full h-screen object-center text-9xl" />
-                <div>
+                <img src={game.background_image} alt="Game Poster" className="absolute top-0 left-0 w-full h-screen object-center text-9xl" />
+                <div className="absolute">
                     <h4 className="text-[#ddd] text-l font-normal pl-2.5">{game.name}</h4>
                 </div>
             </div>
