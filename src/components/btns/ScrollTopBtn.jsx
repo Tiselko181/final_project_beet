@@ -1,9 +1,5 @@
 import PropTypes from "prop-types";
-<<<<<<< HEAD
-import scrollToTopFunc from "../utility/scrollTo";
-=======
 import scrollToTopFunc from "../../utility/scrollToTopFunc";
->>>>>>> eae3fb0 (roll back and fixed genres, search, gameList)
 
 ScrollTopBtn.propTypes = {
     scroll: PropTypes.number,

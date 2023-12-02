@@ -33,8 +33,6 @@ const router = createHashRouter([
         path: '/search',
         lazy: () => import('./layouts/Search.jsx')
       },
-<<<<<<< HEAD
-=======
       // {
       //   path: 'events',
       //   lazy: () => import('./layouts/Events.jsx'),
@@ -47,7 +45,6 @@ const router = createHashRouter([
       //   path: 'hero',
       //   lazy: () => import('./layout/Hero.jsx'),
       // },
->>>>>>> eae3fb0 (roll back and fixed genres, search, gameList)
     ]
   },
   {

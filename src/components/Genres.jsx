@@ -1,16 +1,4 @@
 import { useState, useEffect } from "react";
-<<<<<<< HEAD
-import { tokenKey, baseUrl, genresEndpoint } from "../config/config";
-import PropTypes from "prop-types";
-
-
-Genres.propTypes = {
-    setGameList: PropTypes.func,
-    gameList: PropTypes.arr
-};
-
-function Genres({ setGameList, gameList }) {
-=======
 import PropTypes from "prop-types";
 import { URL } from "../data/getData";
 import { tokenKey, genresEndpoint } from "../config/config";
@@ -22,7 +10,6 @@ Genres.propTypes = {
 
 function Genres({ setGameList, gameList }) {
     // console.log(gameList);
->>>>>>> eae3fb0 (roll back and fixed genres, search, gameList)
     const [genresList, setGenresList] = useState(
         () => {
             const data = JSON.parse(
@@ -57,11 +44,7 @@ function Genres({ setGameList, gameList }) {
 
     }, [genresList]);
 
-<<<<<<< HEAD
-    // const gameDataResults = [...gameList];
-=======
     // console.log(genresList)
->>>>>>> eae3fb0 (roll back and fixed genres, search, gameList)
 
     const handleGenresFilter = selectedGenre => {
         // console.log(selectedGenre)
