@@ -1,9 +1,9 @@
 // import { useState } from 'react';
 import PropTypes from "prop-types";
 // import VideoModal from "../VideoModal";
-import Btn from "../Btn"
+import Btn from "../btns/Btn"
 import { MdOutlineBookmarkAdd } from "react-icons/md";
-import PlayBtn from '../PlayBtn';
+import PlayBtn from '../btns/PlayBtn';
 
 HeroContent.propTypes = {
     game: PropTypes.object,
