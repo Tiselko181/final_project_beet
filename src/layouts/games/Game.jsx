@@ -1,18 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-<<<<<<< HEAD
-import { tokenKey, baseUrl, gamesEndpoint } from "../../config/config";
-import GoBackDtn from "../../components/btns/GoBackDtn";
-import GameGenres from "../../components/game/GameGenres";
-import GameDescription from "../../components/game/GameDescription";
-import GameRating from "../../components/game/GameRating";
-=======
 import { URL } from "../../data/getData";
 import { tokenKey, gamesEndpoint } from "../../config/config";
 import GoBackDtn from "../../components/btns/GoBackDtn";
 import GameGenres from "../../components/game/GameGenres";
 import GameDescription from "../../components/game/GameDescription";
->>>>>>> eae3fb0 (roll back and fixed genres, search, gameList)
 
 function Game() {
     const params = useParams();
@@ -48,11 +40,7 @@ function Game() {
                 <div className="relative lg:flex lg:justify-center  bg-[#00000018] rounded backdrop-blur-[20px] shadow-[0_0_30px] shadow-[#ffffff6b] z-50 lg:px-20 lg:py-20 lg:mt-32">
                     <img src={game.background_image} alt="Title Image" className="relative z-50 w-[270px] h-[400px] object-cover mx-5" />
                     <div className="relative text-[#ddd] text-l font-normal px-5 z-50">
-<<<<<<< HEAD
-                        <GameRating game={game} />
-=======
                         {/* <GameRating game={game} /> */}
->>>>>>> eae3fb0 (roll back and fixed genres, search, gameList)
                         <h2 className="relative text-[#ddd] font-normal pl-2.5 z-50 text-3xl tracking-wide py-3">
                             {game.name}
                         </h2>

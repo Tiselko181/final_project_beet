@@ -1,45 +1,39 @@
 import Pagination from '@mui/material/Pagination';
 import PropTypes from 'prop-types';
 import { useState, useEffect } from "react";
+import getData from "../data/getData";
+import { pageUrl } from "../config/config";
 
 PaginationList.propTypes = {
-    gameQuery: PropTypes.string,
     setGameList: PropTypes.func,
-    allGamesURL: PropTypes.string,
 };
 
-function PaginationList({ gameQuery, setGameList, allGamesURL }) {
+function PaginationList({ setGameList }) {
     const [page, setPage] = useState(1);
     const [currentPage, setCurrentPage] = useState(1);
 
-    const currentPageURL = `${allGamesURL}&page=${page}`;
+    const currentPageURL = `${pageUrl}${page}`;
 
     useEffect(() => {
         async function getDataGamesListByPage() {
             try {
-                const response = await fetch(currentPageURL, {
-                    method: 'GET',
-                });
+                const data = await getData(currentPageURL);
 
-                if (!response.ok) {
-                    throw new Error(`Failed to fetch games: ${response.status}`);
-                }
+                setGameList(data.results);
 
-                const gamesData = await response.json();
-
-                setGameList(gamesData.results);
-
+                console.log(data);
             } catch (error) {
                 console.error('Error fetching games:', error.message);
             }
         }
 
-        if (gameQuery && page !== currentPageURL) {
+        if (page !== currentPageURL) {
             getDataGamesListByPage();
             setCurrentPage(page);
         }
 
-    }, [currentPageURL, gameQuery, page, currentPage, setGameList]);
+
+    }, [currentPageURL, page, currentPage, setGameList]);
 
     return (
         <Pagination count={800} shape="rounded" className="absolute left-[43%] my-7" sx={{
