@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import scrollToTopFunc from "./utility/scrollToTopFunc";
+import scrollToTopFunc from "../utility/scrollTo";
 
 ScrollTopBtn.propTypes = {
     scroll: PropTypes.number,
@@ -9,12 +9,12 @@ const scrollTopClass = "fixed bottom-[15px] right-[15px] scrolldown z-[1100] inv
 
 function ScrollTopBtn({ scroll }) {
     return (
-        <a href="#" onClick={scrollToTopFunc} className={`${scrollTopClass} ${scroll > 100 ? 'scroll-active' : undefined}`}>
+        <button onClick={scrollToTopFunc} className={`${scrollTopClass} ${scroll > 100 ? 'scroll-active' : undefined}`}>
             <div className="pt-[6px] ml-[-3px] mt-12 w-[30px] flex flex-col items-center">
                 <div className="chevronup"></div>
                 <div className="chevronup"></div>
             </div>
-        </a>
+        </button>
     );
 }
 

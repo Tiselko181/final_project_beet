@@ -15,7 +15,7 @@ const router = createHashRouter([
     children: [
       {
         index: true,
-        lazy: () => import('./layouts/Home.jsx'),
+        lazy: () => import('./layouts/home/Home.jsx'),
       },
       {
         path: 'games',
@@ -33,10 +33,6 @@ const router = createHashRouter([
         path: 'blog',
         lazy: () => import('./layouts/Blog.jsx'),
       },
-      // {
-      //   path: 'hero',
-      //   lazy: () => import('./layout/Hero.jsx'),
-      // },
     ]
   },
   {

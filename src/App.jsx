@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import './App.css';
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import ScrollTopBtn from "./components/ScrollTopBtn";
+import ScrollTopBtn from "./components/btns/ScrollTopBtn";
 
 
 

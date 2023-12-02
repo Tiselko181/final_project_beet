@@ -1,9 +1,11 @@
-import Hero from "../layouts/Hero";
+import Hero from "../Hero";
+import MostPopular from "./MostPopular";
 
 function Home() {
     return (
         <>
             <Hero />
+            <MostPopular />
         </>
     );
 }
