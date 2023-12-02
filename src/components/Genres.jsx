@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+<<<<<<< HEAD
 import { tokenKey, baseUrl, genresEndpoint } from "../config/config";
 import PropTypes from "prop-types";
 
@@ -9,10 +10,23 @@ Genres.propTypes = {
 };
 
 function Genres({ setGameList, gameList }) {
+=======
+import PropTypes from "prop-types";
+import { URL } from "../data/getData";
+import { tokenKey, genresEndpoint } from "../config/config";
+
+Genres.propTypes = {
+    setGameList: PropTypes.func,
+    gameList: PropTypes.array
+};
+
+function Genres({ setGameList, gameList }) {
+    // console.log(gameList);
+>>>>>>> eae3fb0 (roll back and fixed genres, search, gameList)
     const [genresList, setGenresList] = useState(
         () => {
             const data = JSON.parse(
-                window.localStorage.getItem(`${baseUrl}${genresEndpoint}${tokenKey}`)
+                window.localStorage.getItem(`${URL}${genresEndpoint}${tokenKey}`)
             );
             return data ? data.results : [];
         }
@@ -21,7 +35,7 @@ function Genres({ setGameList, gameList }) {
     useEffect(() => {
         async function getGenresList() {
             try {
-                const server = `${baseUrl}${genresEndpoint}${tokenKey}`;
+                const server = `${URL}${genresEndpoint}${tokenKey}`;
                 const response = await fetch(server, {
                     method: 'GET',
                 });
@@ -43,7 +57,11 @@ function Genres({ setGameList, gameList }) {
 
     }, [genresList]);
 
+<<<<<<< HEAD
     // const gameDataResults = [...gameList];
+=======
+    // console.log(genresList)
+>>>>>>> eae3fb0 (roll back and fixed genres, search, gameList)
 
     const handleGenresFilter = selectedGenre => {
         // console.log(selectedGenre)
