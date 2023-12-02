@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import HeroContent from '../components/hero/HeroContent';
 import HeroSwiper from '../components/hero/HeroSwiper';
-import DownBtn from '../components/hero/DownBtn';
+import DownBtn from '../components/btns/DownBtn';
 import React from 'react';
 
 
