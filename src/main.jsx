@@ -26,13 +26,28 @@ const router = createHashRouter([
         lazy: () => import('./layouts/games/Game.jsx'),
       },
       {
-        path: 'events',
-        lazy: () => import('./layouts/Events.jsx'),
+        path: '/favourites',
+        lazy: () => import('./layouts/MyList.jsx')
       },
       {
-        path: 'blog',
-        lazy: () => import('./layouts/Blog.jsx'),
+        path: '/search',
+        lazy: () => import('./layouts/Search.jsx')
       },
+<<<<<<< HEAD
+=======
+      // {
+      //   path: 'events',
+      //   lazy: () => import('./layouts/Events.jsx'),
+      // },
+      // {
+      //   path: 'blog',
+      //   lazy: () => import('./layouts/Blog.jsx'),
+      // },
+      // {
+      //   path: 'hero',
+      //   lazy: () => import('./layout/Hero.jsx'),
+      // },
+>>>>>>> eae3fb0 (roll back and fixed genres, search, gameList)
     ]
   },
   {
