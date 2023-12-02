@@ -1,23 +1,23 @@
 import { useState, useEffect } from "react";
+import getData from "../../data/getData";
+// import PropTypes from "prop-types";
 import GameThumbnail from "./GameThumbnail";
-import { tokenKey, baseUrl, gamesEndpoint } from "../../config/config";
+import { baseURL, gamesEndpoint, tokenKey } from "../../config/config";
 import Genres from "../../components/Genres";
 import PaginationList from "../../components/PaginationList";
-import scrollToTopFunc from "../../components/utility/scrollTo";
-import { useSearchParams } from "react-router-dom";
-import Search from "../../components/Search";
+import scrollToTopFunc from "../../utility/scrollToTopFunc";
 
 function GamesList() {
     const [searchParams, setSearchParams] = useSearchParams();
 
     const gameQuery = searchParams.get('search') || '';
 
-    const allGamesURL = `${baseUrl}${gamesEndpoint}${tokenKey}`;
+    const gameURL = `${gamesEndpoint}${tokenKey}`
 
     const [gameList, setGameList] = useState(
         () => {
             const data = JSON.parse(
-                window.localStorage.getItem(allGamesURL)
+                window.localStorage.getItem(baseURL)
             );
             return data ? data.results : [];
         }
@@ -26,19 +26,9 @@ function GamesList() {
     useEffect(() => {
         async function getDataGamesList() {
             try {
-                const response = await fetch(allGamesURL, {
-                    method: 'GET',
-                });
+                const data = await getData(gameURL);
 
-                if (!response.ok) {
-                    throw new Error(`Failed to fetch games: ${response.status}`);
-                }
-
-                const gamesData = await response.json();
-
-                window.localStorage.setItem(allGamesURL, JSON.stringify(gamesData));
-
-                setGameList(gamesData.results);
+                setGameList(data.results);
 
             } catch (error) {
                 console.error('Error fetching genres:', error.message);
@@ -51,7 +41,7 @@ function GamesList() {
 
         scrollToTopFunc()
 
-    }, [allGamesURL, gameList]);
+    }, [gameURL, gameList, page, currentPage]);
 
     return (
         <section className="relative w-full min-h-screen px-2.5 py-[40px] lg:py-[100px] overflow-hidden duration-500">
@@ -61,14 +51,14 @@ function GamesList() {
             </div>
             <div className="flex gap-5 lg:pl-12">
                 <aside className="w-1/12">
-                    <Genres gameList={gameList} setGameList={setGameList} />
+                    <Genres setGameList={setGameList} gameList={gameList} />
+                    {/* <Genres selectedGenre={selectedGenre} onGenreChange={handleGenreChange} /> */}
                 </aside>
                 <div className="box-border lg:pr-12 flex flex-wrap gap-5 justify-center items-center w-11/12">
                     {
-                        gameList.filter(game => game.name.toLowerCase().includes(gameQuery.toLowerCase()))
-                            .map(
-                                game => <GameThumbnail key={game.id} game={game} />
-                            )
+                        gameList.map(
+                            game => <GameThumbnail key={game.id} game={game} />
+                        )
                     }
                 </div>
             </div>
