@@ -23,7 +23,7 @@ function GamesList() {
             return data ? data.results : [];
         }
     );
-    // console.log(gameList)
+
     useEffect(() => {
         async function getDataGamesList() {
             try {
@@ -44,6 +44,7 @@ function GamesList() {
 
     }, [gameURL, gameList]);
 
+
     return (
         <section className="relative w-full min-h-screen px-2.5 py-[40px] lg:py-[100px] overflow-hidden duration-500">
             <div className="flex flex-row-reverse pb-5 my-10 px-10 heroUnderline">
@@ -55,7 +56,7 @@ function GamesList() {
                     <Genres setGameList={setGameList} gameList={gameList} />
                     {/* <Genres selectedGenre={selectedGenre} onGenreChange={handleGenreChange} /> */}
                 </aside>
-                <div className="box-border lg:pr-12 flex flex-wrap gap-5 justify-center items-center w-11/12">
+                <div className="box-border lg:pr-12 flex flex-wrap gap-5 justify-center +w-11/12">
                     {
                         gameList.map(
                             game => <GameThumbnail key={game.id} game={game} />

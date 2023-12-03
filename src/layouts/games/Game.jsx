@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { URL } from "../../data/getData";
 import { tokenKey, gamesEndpoint } from "../../config/config";
-import GoBackDtn from "../../components/btns/GoBackDtn";
+import GoBackDtn from "../../components/btns/GoBackBtn";
 import GameGenres from "../../components/game/GameGenres";
 import GameDescription from "../../components/game/GameDescription";
 
@@ -31,6 +31,8 @@ function Game() {
         }
         game.length || getDataGame();
     }, [game.length, params.id])
+
+    if (!game) return <p>Loading...</p>;
 
     return (
         <div className="relative w-full min-h-screen lg:px-[100px] py-0 overflow-hidden after:absolute after:content-[''] after:w-full after:h-full after:bg-[#121212cd] after:inset-x-0 after:inset-y-0" >

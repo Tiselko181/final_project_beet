@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import HeroContent from '../components/hero/HeroContent';
-import HeroSwiper from '../components/hero/HeroSwiper';
-import DownBtn from '../components/btns/DownBtn';
+import HeroContent from '../../components/hero/HeroContent';
+import HeroSwiper from '../../components/hero/HeroSwiper';
+import DownBtn from '../../components/btns/DownBtn';
 import React from 'react';
 
 
@@ -43,15 +43,13 @@ function Hero() {
                                 </div>
                                 <div className='lg:w-2/4 w-full'>
                                     {games && games.length > 0 && <HeroSwiper slides={games} slideChange={handleSlideChange} />}
-                                    {/* <HeroDate game={game} /> */}
-                                    {/* <PlayBtn game={game} /> */}
                                 </div>
                             </div>
                             <DownBtn />
                         </React.Fragment>
                     )
                 }
-            })},
+            })}
         </section>
     );
 }

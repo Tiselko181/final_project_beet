@@ -14,7 +14,7 @@ function NotFoundPage() {
     }, [navigate]);
 
     return (
-        <div className=" w-full h-screen flex flex-col justify-center items-center">
+        <div className="w-full h-screen flex flex-col justify-center items-center">
             <div className="text-[#ff3700] text-center text-[148px] flex">O<GiUnlitBomb className="rotate-90 self-center mt-10 text-[100px]" />ps!</div>
             <p className="text-[#a6a5a5] text-center text-xl">( 404 ) Not Found Page</p>
             <button onClick={() => {
