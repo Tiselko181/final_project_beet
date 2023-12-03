@@ -16,11 +16,11 @@ function VideoModal({ game }) {
 
     return (
         <div className={`videoModal ${status ? 'flex' : undefined}`}>
-            <a href="#"
+            <button
                 className="absolute top-[30px] right-[30px] cursor-pointer "
                 onClick={toogleVideoModal}>
                 <IoMdClose className="fill-white" />
-            </a>
+            </button>
             <iframe
                 width="1280"
                 height="720"

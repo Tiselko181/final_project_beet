@@ -1,8 +1,10 @@
 import Pagination from '@mui/material/Pagination';
+import { useSearchParams } from "react-router-dom";
 import PropTypes from 'prop-types';
 import { useState, useEffect } from "react";
 import getData from "../data/getData";
 import { pageUrl } from "../config/config";
+import scrollToTopFunc from "../utility/scrollToTopFunc";
 
 PaginationList.propTypes = {
     setGameList: PropTypes.func,
@@ -14,14 +16,17 @@ function PaginationList({ setGameList }) {
 
     const currentPageURL = `${pageUrl}${page}`;
 
+    function changePage(e, newPage) {
+        setPage(newPage);
+        scrollToTopFunc();
+    }
+
     useEffect(() => {
         async function getDataGamesListByPage() {
             try {
                 const data = await getData(currentPageURL);
 
                 setGameList(data.results);
-
-                console.log(data);
             } catch (error) {
                 console.error('Error fetching games:', error.message);
             }
@@ -31,8 +36,6 @@ function PaginationList({ setGameList }) {
             getDataGamesListByPage();
             setCurrentPage(page);
         }
-
-
     }, [currentPageURL, page, currentPage, setGameList]);
 
     return (
@@ -52,9 +55,7 @@ function PaginationList({ setGameList }) {
             '.Mui-selected:hover': {
                 backgroundColor: '#ff3700',
             },
-        }} onChange={(e, newPage) => {
-            setPage(newPage);
-        }} />
+        }} onChange={changePage} />
     );
 }
 

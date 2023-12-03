@@ -198,7 +198,7 @@
 }
 
 .titleEffect {
-    @apply after:absolute after:content-[''] after:left-12 after:bottom-[30px] after:h-1 after:w-1/2 after:z-50 after:bg-gradient-to-r after:from-[#ff3700];
+    @apply after:absolute after:content-[''] after:left-[4%] after:bottom-[30%] after:h-1 after:w-1/2 after:z-50 after:bg-gradient-to-r after:from-[#ff3700];
 }
 
 .activeLi {
