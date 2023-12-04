@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import GameThumbnail from '../layouts/games/GameThumbnail';
-import useMyList from '../hooks/useMyList';
+import GameThumbnail from '../games/GameThumbnail';
+import useMyList from '../../hooks/useMyList';
 
 function MyList() {
     const [myFavList, myFavId, addToMyFav] = useMyList();
@@ -11,7 +11,7 @@ function MyList() {
     }, [myFavList]);
 
     return (
-        <main>
+        <main className="py-40 px-20">
             <h1>My games</h1>
             {
                 listChanged ? (

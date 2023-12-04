@@ -39,9 +39,7 @@ function GamesList() {
         if (!gameList.length) {
             getDataGamesList();
         }
-
         scrollToTopFunc()
-
     }, [gameURL, gameList]);
 
 

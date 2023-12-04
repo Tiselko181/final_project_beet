@@ -31,12 +31,12 @@ function Hero() {
     };
 
     return (
-        <section className='relative w-full min-h-screen px-[100px] py-0 overflow-hidden duration-500 after:absolute after:content-[""] after:w-full after:h-full after:bg-[#12121299] after:inset-x-0 after:inset-y-0'>
+        <section className='relative w-full min-h-screen lg:px-[100px] py-0 overflow-hidden duration-500 after:absolute after:content-[""] after:w-full after:h-full after:bg-[#12121299] after:inset-x-0 after:inset-y-0'>
             {games.map((game) => {
                 if (game.active) {
                     return (
                         <React.Fragment key={game._id}>
-                            <div className='pt-[120px] px-[100px] top-0 left-0 w-full h-screen flex justify-between items-center flex-wrap overflow-hidden pb-[100px]'>
+                            <div className='sm:pt-[120px] pt-20 lg:px-[100px] top-0 left-0 w-full h-screen flex justify-between items-center flex-wrap overflow-hidden pb-[100px]'>
                                 <img src={game.bgImg} alt="background" className={`bgImg ${game.active ? 'active' : undefined}`} />
                                 <div className='lg:w-2/4 w-full'>
                                     <HeroContent game={game} />
@@ -45,7 +45,7 @@ function Hero() {
                                     {games && games.length > 0 && <HeroSwiper slides={games} slideChange={handleSlideChange} />}
                                 </div>
                             </div>
-                            <DownBtn />
+                            <div className='hidden md:block'><DownBtn /></div>
                         </React.Fragment>
                     )
                 }

@@ -19,16 +19,13 @@ function Platforms() {
         fetchGames()
     }, [])
 
-    console.log(platforms)
-
     return (
-        <section className='pt-20 pb-20 px-10 relative w-full snap-always'>
-            <h2 className='px-20 relative text-2xl uppercase tracking-wide titleEffect pb-11 mb-5 pt-2.5 z-50'>Platforms:</h2>
+        <section className='lmd:py-16 sm:py-10 py-5 px-10 w-full snap-always'>
+            <h2 className='md:px-20 px-6 relative md:text-2xl uppercase tracking-wide titleEffect pb-11 mb-5 pt-2.5 z-50'>Platforms:</h2>
             <Swiper
                 grabCursor={true}
                 centeredSlides={true}
                 slidesPerView={'6'}
-                setWrapperSize={100}
                 autoplay={{
                     delay: 2500,
                     disableOnInteraction: false,

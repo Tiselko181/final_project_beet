@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 
-const navClass = "text-white uppercase font-normal tracking-[1px] duration-300 hover:text-[#ff3700]";
+const navClass = "text-white uppercase font-normal tracking-[1px] hover:text-[#ff3700]";
 
 function getNavClasses({ isActive }) {
     return isActive ? `${navClass} nav-active` : navClass;
@@ -8,10 +8,9 @@ function getNavClasses({ isActive }) {
 
 function Menu() {
     return (
-        <nav className="flex gap-20 text-center">
+        <nav className="flex flex-col lg:flex-row mt-48 lg:ml-16 lg:mt-0 gap-10 text-center">
             <NavLink className={getNavClasses} to="/">Home</NavLink>
             <NavLink className={getNavClasses} to={"games"}>Games</NavLink>
-            <NavLink className={getNavClasses} to={"events"}>Events</NavLink>
             <NavLink className={getNavClasses} to={"blog"}>Blog</NavLink>
         </nav>
     );
