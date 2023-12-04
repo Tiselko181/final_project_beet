@@ -12,6 +12,10 @@
         padding: 10px 100px;
     }
 
+    .borderImgGrad {
+        border-image: linear-gradient(90deg, transparent, var(--primary), transparent)30;
+    }
+
     .scrolldown {
         --color: #fff;
         --sizeX: 30px;
@@ -146,10 +150,16 @@
     .search::-webkit-search-decoration {
         margin-right: -20px;
     }
+
+    /* @media screen and (max-width: 779px) {
+        #btnHide {
+            display: none;
+        }
+    } */
 }
 
 .header {
-    @apply py-5 px-7 flex fixed top-0 left-0 w-full justify-between items-center py-[30px] px-[100px] duration-300 z-[1000];
+    @apply flex fixed top-0 left-0 w-full justify-between items-center py-5 sm:py-[30px] px-10 lg:px-[80px] duration-300 z-[1000];
 }
 
 .nav-active {
@@ -165,24 +175,24 @@
 }
 
 .content {
-    @apply relative hidden duration-1000 z-[900] scale-0;
+    @apply relative hidden flex-col items-center lg:items-start duration-1000 z-[900] scale-0;
 
 }
 
 .content-active {
-    @apply block scale-100;
+    @apply flex scale-100;
 }
 
-/* .playBtn {
-    @apply relative hidden scale-0 z-[900] justify-center items-center;
+.playBtn {
+    @apply relative invisible scale-0 z-[900] flex justify-center items-center;
 }
 
 .playBtn-active {
-    @apply flex scale-100;
-} */
+    @apply visible scale-100;
+}
 
 .videoModal {
-    @apply absolute content-[''] top-[125px] left-[100px] bottom-0 right-[100px] bg-[#00000080] backdrop-blur-[20px] z-[1500] items-center justify-center duration-1000 hidden;
+    @apply absolute content-[''] top-[-335px] xs:top-[-180px] sm:bottom-[75px] xl:top-[125px] left-[130px] lg:left-[450px] xl:left-[100px] bottom-0 right-[100px] bg-[#00000050] backdrop-blur-[20px] z-[1500] shadow-[0_0_30px] shadow-[#ffffff6b] flex items-center opacity-0 justify-center duration-1000 invisible;
 }
 
 .scroll-active {

@@ -2,6 +2,13 @@ import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { URL } from "../data/getData";
 import { tokenKey, genresEndpoint } from "../config/config";
+import Box from '@mui/material/Box';
+import Drawer from '@mui/material/Drawer';
+import Button from '@mui/material/Button';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemText from '@mui/material/ListItemText';
 
 Genres.propTypes = {
     setGameList: PropTypes.func,
@@ -9,7 +16,18 @@ Genres.propTypes = {
 };
 
 function Genres({ setGameList, gameList }) {
-    // console.log(gameList);
+    const [state, setState] = useState({
+        left: false,
+    });
+
+    const toggleDrawer = (open) => (event) => {
+        if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+            return;
+        }
+
+        setState({ left: open });
+    };
+
     const [genresList, setGenresList] = useState(
         () => {
             const data = JSON.parse(
@@ -40,14 +58,14 @@ function Genres({ setGameList, gameList }) {
                 console.error('Error fetching genres:', error.message);
             }
         }
-        genresList.length || getGenresList();
+
+        if (genresList.length === 0) {
+            getGenresList();
+        }
 
     }, [genresList]);
 
-    // console.log(genresList)
-
-    const handleGenresFilter = selectedGenre => {
-        // console.log(selectedGenre)
+    const handleGenresFilter = (selectedGenre) => {
         if (selectedGenre === 'All') {
             setGameList(gameList);
         } else {
@@ -58,15 +76,41 @@ function Genres({ setGameList, gameList }) {
 
     const liStyle = "mb-2.5 py-2.5 px-6 text-white text-center text-sm uppercase rounded bg-[#191919] cursor-pointer hover:bg-[#ff3700]";
 
+    const list = (
+        <Box
+            sx={{ width: 250 }}
+            role="presentation"
+            onClick={toggleDrawer(false)}
+            onKeyDown={toggleDrawer(false)}
+        >
+            <List>
+                <ListItem disablePadding>
+                    <ListItemButton>
+                        <ListItemText primary={
+                            <ul className="pt-0 pb-2.5">
+                                <li className={`${liStyle} activeLi`} onClick={() => handleGenresFilter('All')}>All</li>
+                                {genresList.map((genre, index) => (
+                                    <li key={index} onClick={() => { handleGenresFilter(genre.name) }} className={`${liStyle}`}>{genre.name}</li>
+                                ))}
+                            </ul >
+                        } />
+                    </ListItemButton>
+                </ListItem>
+            </List>
+        </Box>
+    );
+
     return (
-        <>
-            <ul className="pt-0 pb-2.5">
-                <li className={`${liStyle} activeLi`} onClick={() => { handleGenresFilter() }}>All</li>
-                {genresList.map((genre, index) => (
-                    <li key={index} onClick={() => { handleGenresFilter(genre.name) }} className={`${liStyle}`}>{genre.name}</li>
-                ))}
-            </ul >
-        </>
+        <div className="absolute top-[125px]">
+            <Button onClick={toggleDrawer(true)}>Open Genres</Button>
+            <Drawer
+                anchor="left"
+                open={state.left}
+                onClose={toggleDrawer(false)}
+            >
+                {list}
+            </Drawer>
+        </div >
     );
 }
 

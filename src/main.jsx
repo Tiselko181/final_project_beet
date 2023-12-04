@@ -27,20 +27,20 @@ const router = createHashRouter([
       },
       {
         path: '/favourites',
-        lazy: () => import('./layouts/MyList.jsx')
+        lazy: () => import('./layouts/favorites/MyList.jsx')
       },
       {
         path: '/search',
         lazy: () => import('./layouts/Search.jsx')
       },
-      // {
-      //   path: 'events',
-      //   lazy: () => import('./layouts/Events.jsx'),
-      // },
-      // {
-      //   path: 'blog',
-      //   lazy: () => import('./layouts/Blog.jsx'),
-      // },
+      {
+        path: 'blog/:id',
+        lazy: () => import('./layouts/BlogItem.jsx'),
+      },
+      {
+        path: 'blog',
+        lazy: () => import('./layouts/Blog.jsx'),
+      },
       // {
       //   path: 'hero',
       //   lazy: () => import('./layout/Hero.jsx'),

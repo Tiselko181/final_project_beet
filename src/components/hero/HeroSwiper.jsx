@@ -30,7 +30,7 @@ function HeroSwiper({ slides, slideChange }) {
             }}
             loop={true}
             modules={[EffectCoverflow, Autoplay]}
-            className="mt-8 py-[70px] w-[35vw] bg-[#00000018] rounded backdrop-blur-[20px] shadow-[0_0_30px] shadow-[#ffffff6b]"
+            className="lg:mt-8 mt-8 mb-4 lg:py-[70px] py-3 lg:w-[35vw] bg-[#00000018] rounded backdrop-blur-[20px] shadow-[0_0_30px] shadow-[#ffffff6b]"
         >
             {
                 slides.map((slide) =>

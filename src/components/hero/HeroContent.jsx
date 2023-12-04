@@ -9,30 +9,22 @@ HeroContent.propTypes = {
     game: PropTypes.object,
 };
 
-const contentSpan = "text-white px-2.5 py-0 border-r border-[#ffffff99] last-of-type:border-r-0 first-of-type:border-l-0";
+const contentSpan = "text-white px-2.5 py-0 border-[#ffffff99]";
 
 function HeroContent({ game }) {
     return (
         <>
             <div className={`content ${game.active ? 'content-active' : undefined}`}>
-                <img src={game.titleImg} alt="game_title" className='max-w-[250px] mb-5' />
-                <h4 className='text-[#ffffff99] font-normal text-3xl'>
-                    <span className={contentSpan}><span className="text-xs font-bold text-[#ff3700] pr-[5px]">{game.date}</span>{game.year}</span>
-                    <span className={contentSpan}><i className="text-white py-0 px-2 rounded-sm inline-block bg-[#ff3700]">{game.waiting}</i></span>
-                    <span className={contentSpan}>{game.genre}</span>
-                </h4>
-                <p className='text-base font-normal text-white mx-0 mt-5 mb-5'>{game.description}</p>
+                <img src={game.titleImg} alt="game_title" className='sm:max-w-[250px] max-w-[150px] mb-1.5 md:mb-5' />
+                <div className='text-[#ffffff99] font-normal md:text-3xl text-lg flex flex-col sm:flex-row items-center'>
+                    <p className={`${contentSpan} lg:flex lg:flex-col`}><span className="text-xs font-bold text-[#ff3700] pr-[5px]">{game.date}</span>{game.year}</p>
+                    <p className={`${contentSpan} border-x`}><i className="py-0 px-2 rounded-sm inline-block bg-[#ff3700] ">{game.waiting}</i></p>
+                    <p className={contentSpan}>{game.genre}</p>
+                </div>
+                <p className='s:text-base text-xs text-center md:text-start font-normal mx-10 mt-5 mb-5'>{game.description}</p>
                 <div className="flex">
-                    <PlayBtn game={game} />
-                    {/* <Btn
-                        icon={<IoPlaySharp className='fill-[#ff3700] group-hover:fill-white' />}
-                        name='Watch'
-                        color='#ff3700'
-                        bgColor='#fff'
-                        className='hover:!text-white hover:!bg-[#ff3700]'
-                        onClick={toogleVideoModal} /> */}
-                    {/* {game.active && <VideoModal game={game} status={videoModal} toogleVideoModal={toogleVideoModal} />} */}
-                    <Btn icon={<MdOutlineBookmarkAdd className='stroke-white group-hover:stroke-[#ff3700]' />} name='My List' />
+                    <PlayBtn game={game} className="pr-2" />
+                    <Btn className='pl-2' icon={<MdOutlineBookmarkAdd className='stroke-white group-hover:stroke-[#ff3700]' />} name='My List' />
                 </div>
             </div>
         </>
