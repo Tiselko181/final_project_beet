@@ -30,4 +30,3 @@ function PlayBtn({ game }) {
 }
 
 export default PlayBtn;
-
