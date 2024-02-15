@@ -6,6 +6,7 @@ export default {
         "./src/**/*.{js,ts,jsx,tsx}",
         "./node_modules/tw-elements-react/dist/js/"
     ],
+    important: '#root',
     theme: {
         extend: {
             keyframes: {

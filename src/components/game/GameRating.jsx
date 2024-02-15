@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { MdQuestionMark } from "react-icons/md";
 import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
-
+import StarIcon from '@mui/icons-material/Star';
 
 GameRating.propTypes = {
     game: PropTypes.object,
@@ -16,7 +16,16 @@ function GameRating({ game }) {
                     '& > legend': { mt: 2 },
                 }}
             >
-                <Rating name="read-only" value={game.rating} precision={0.5} readOnly />
+                <Rating
+                    name="read-only"
+                    value={game.rating}
+                    precision={0.1}
+                    readOnly
+                    emptyIcon={
+                        <StarIcon style={
+                            { stroke: '#faaf00' }}
+                        />}
+                />
             </Box>
             <div className="flex items-center">
                 <img src="/assets/metacritic.png" width={120} alt="Metacritic Logo" />
